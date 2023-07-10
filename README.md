@@ -104,6 +104,53 @@
     score = {visitors: 1, home: 1};
     `````
 
+## Higher-Order functions (Funciones de orden superior)
+
+**Hay que tener en cuenta que los programas grandes, no solamente toman mas tiempo de construirse, sino que tambien involucran complejidad que confunde a los programadores**.
+Estos programadores introducen bugs y debido al espacio que ocupan estos programas se esconden los bugs y es más dificil encontrarlos.
+
+Las funciones de orden superior son **funciones que trabajan con otras funciones, ya sea recibiendolas como argumentos como retornandolas**.
+
+Ejemplos de es esto son las funciones, **filter**, **map** y **forEach**.
+
+```
+function filter(array, test) {
+  let passed = [];
+  for (let element of array) {
+    if (test(element)) {
+      passed.push(element);
+    }
+  }
+  return passed;
+}
+
+console.log(filter(SCRIPTS, script => script.living));
+// → [{name: "Adlam", …}, …]
+```
+Función Reduce
+
+Función que busca obtener un solo valor a partir de un array. Tiene 3 parametros son **el array, una funcion que combina los valores y el valor inicial**.
+
+```
+function reduce(array, combine, start) {
+  let current = start;
+  for (let element of array) {
+    current = combine(current, element);
+  }
+  return current;
+}
+
+console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0));
+// → 10
+```
+
+Cuando es util usarlo? 
+
+Cuando es necesario componer funciones.
+
+
+
+
 
 
 
